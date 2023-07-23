@@ -1,0 +1,15 @@
+module.exports = {
+  files: ['**/*.{html,htm,css,js}'],
+  watchEvents: ['change'],
+  watch: true,
+  ignore: ['node_modules'],
+  server: false,
+  proxy: 'localhost:3000',
+  port: 5000,
+  middleware: [],
+  reloadDebounce: 500,
+  online: false,
+  open: true,
+  cors: true,
+  ui: false,
+};
