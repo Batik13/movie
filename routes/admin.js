@@ -1,10 +1,12 @@
-const express = require('express');
+const express = require("express");
+const adminController = require("../controllers/adminController");
+const pageRoutes = require("./pages");
 const router = express.Router();
-const adminController = require('../controllers/adminController');
 
 // Protect all routes below with middleware
-router.use(adminController.protectAdminRoute);
+router.use(adminController.protectRoute);
+router.use("/pages", pageRoutes);
 
-router.get('/', adminController.showAdminDashboard);
+router.get("/", adminController.showAdminDashboard);
 
 module.exports = router;

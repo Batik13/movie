@@ -13,6 +13,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  role: {
+    type: String,
+    default: "customer",
+  },
 });
 
 UserSchema.pre("save", function (next) {
@@ -27,10 +31,6 @@ UserSchema.pre("save", function (next) {
     next();
   });
 });
-
-// UserSchema.methods.comparePassword = function (password) {
-//   return bcrypt.compareSync(password, this.password);
-// };
 
 UserSchema.methods.isValidPassword = async function (password) {
   try {

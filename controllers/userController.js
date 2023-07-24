@@ -19,8 +19,8 @@ exports.loginUser = async (req, res) => {
     // Если пользователя не существует или пароль неверный, отправьте ошибку
     res.status(401).send("Invalid username or password");
   } else {
-    // Если все в порядке, сохраните пользователя в сессии и перенаправьте его на главную страницу
-    req.session.user = user;
+    // Если все в порядке, сохраните пользователя (и его роль) в сессии и перенаправьте его на главную страницу
+    req.session.user = { username: user.username, role: user.role };
     res.redirect("/");
   }
 };
