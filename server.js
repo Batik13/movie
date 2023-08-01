@@ -50,7 +50,6 @@ app.use(cors());
 // Define routes
 const rootRouter = require("./routes/root");
 const usersRouter = require("./routes/users");
-const pageRoutes = require('./routes/pages');
 app.use("/", rootRouter);
 app.use("/", usersRouter);
 
