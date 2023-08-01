@@ -8,7 +8,7 @@ const AdminBro = require("admin-bro");
 const AdminBroMongoose = require("@admin-bro/mongoose");
 const AdminBroExpress = require("@admin-bro/express");
 const config = require("./config");
-const User = require("./models/User"); // Make sure path is correct
+const User = require("./admin/models/User"); // Make sure path is correct
 
 // Middleware for authentication
 const isAuthenticated = (req, res, next) => {
@@ -42,14 +42,14 @@ app.use(
 );
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "client/views"));
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(cors());
 
 // Define routes
-const rootRouter = require("./routes/root");
-const usersRouter = require("./routes/users");
+const rootRouter = require("./client/routes/index");
+const usersRouter = require("./admin/routes/users");
 app.use("/", rootRouter);
 app.use("/", usersRouter);
 

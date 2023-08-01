@@ -1,5 +1,3 @@
-// movie2/routes/movies.js
-
 var express = require("express");
 var router = express.Router();
 

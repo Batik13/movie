@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js & browser-sync start --config bs-config.js",
     "start-server": "nodemon server.js",
     "start-browser-sync": "browser-sync start --config bs-config.js",
     "start": "concurrently \"npm run start-server\" \"npm run start-browser-sync\""
